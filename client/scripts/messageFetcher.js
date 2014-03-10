@@ -13,8 +13,9 @@ $(document).ready(function() {
         rooms[messageObj.roomname] = new Room(messageObj.roomname);
       }
       rooms[messageObj.roomname].addMessage(messageObj);
-      if( (new Date(messageObj.lastUpdated)).valueOf() > lastUpdated.valueOf() ) {
-        lastUpdated = new Date(messageObj.lastUpdated);
+      if( (new Date(messageObj.updatedAt)).valueOf() > lastUpdated.valueOf() ) {
+        lastUpdated = new Date(messageObj.updatedAt);
+        //console.log("date updated to: ", lastUpdated);
       }
     });
     setTimeout(fetchMessages, 1000);

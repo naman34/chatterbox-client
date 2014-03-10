@@ -21,6 +21,9 @@ Room.prototype.addMessage = function(messageObj) {
   if(this.messageIDs[messageObj.objectId] === undefined) {
     this.messageIDs[messageObj.objectId] = true;
     this.messages.push(messageObj);
+    if(this.messages.length > 200){
+      this.messages.shift();
+    }
     this.newMessageNotifier(messageObj);
   }
 };
