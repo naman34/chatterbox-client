@@ -22,15 +22,21 @@ $(document).ready(function() {
 
   // Fetches new messages and passes them to updateMessages method.
   var fetchMessages = function() {
-    $.get('https://api.parse.com/1/classes/chatterbox', updateMessages);
+    var obj = {
+      updatedAt: {
+        "$gt": {
+          "__type": "Date",
+          "iso": lastUpdated
+        }
+      }
+    };
+    $.get('https://api.parse.com/1/classes/chatterbox?where=' + encodeURIComponent(
+      JSON.stringify(obj)
+    ), updateMessages);
   };
-
-// ?where=' + encodeURIComponent(JSON.stringify({
-//       lastUpdated: {
-//         $gt: lastUpdated
-//       }
-//     }))
 
   fetchMessages();
 
 });
+
+
