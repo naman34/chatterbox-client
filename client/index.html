@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>chatterbox</title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700,200italic,400italic,600italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/styles.css">
 
     <!-- dependencies -->
@@ -16,17 +17,30 @@
     <script src="scripts/messageFetcher.js"></script>
   </head>
   <body>
-    <div id="main">
-      <h1>chatterbox</h1>
-      <div class="messages">
 
+    <div id="main">
+
+      <header>
+        <h1>chatterbox</h1>
+        <nav class="rooms"></nav>
+      </header>
+
+      <div class="messages">
       </div>
+
+      <footer>
+        <form>
+          <input type="text" placeholder="your chatter here…">
+          <input type="submit" value="post">
+        </form>
+      </footer>
+
     </div>
     <script type="x/template" id="message-template">
       <div class="message" id="{{objectId}}">
-        <h3>{{username}}</h3>
+        <h3 class="username">{{username}}&nbsp;</h3>
+        <p class="text">{{text}}&nbsp;</p>
         <span class="timestamp">{{updatedAt}}</span>
-        <p>{{text}}</p>
       </div>
     </script>
   </body>
