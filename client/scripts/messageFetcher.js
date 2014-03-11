@@ -12,6 +12,8 @@ $(document).ready(function() {
       if(rooms[messageObj.roomname] === undefined) {
         rooms[messageObj.roomname] = new Room(messageObj.roomname);
       }
+      roomsView.addRoom(messageObj.roomname);
+      //debugger;
       rooms[messageObj.roomname].addMessage(messageObj);
       if( (new Date(messageObj.updatedAt)).valueOf() > lastUpdated.valueOf() ) {
         lastUpdated = new Date(messageObj.updatedAt);
@@ -37,9 +39,17 @@ $(document).ready(function() {
   };
 
   messageView.template = $('#message-template').html();
-  messageView.changeSource('lobby');
+  var lobbyname;
+  var roomsRegEx = /^#\/room\/[\w]+\/?/;
+  if(roomsRegEx.test(window.location.hash)) {
+    console.log("detected URL");
+    lobbyname = window.location.hash.replace("#/room/", "").replace(/\//g,"");
+    // debugger;
+  } else {
+    lobbyname = "lobby";
+  }
+  messageView.changeSource(lobbyname);
   fetchMessages();
-
 
 });
 
