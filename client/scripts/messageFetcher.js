@@ -39,16 +39,21 @@ $(document).ready(function() {
   };
 
   messageView.template = $('#message-template').html();
-  var lobbyname;
-  var roomsRegEx = /^#\/room\/[\w]+\/?/;
-  if(roomsRegEx.test(window.location.hash)) {
-    console.log("detected URL");
-    lobbyname = window.location.hash.replace("#/room/", "").replace(/\//g,"");
-    // debugger;
-  } else {
-    lobbyname = "lobby";
+
+  var activateRoom = function(){
+    var roomname;
+    var roomsRegEx = /^#\/room\/[\w]+\/?/;
+    if(roomsRegEx.test(window.location.hash)) {
+      console.log("detected URL");
+      roomname = window.location.hash.replace("#/room/", "").replace(/\//g,"");
+      // debugger;
+    } else {
+      roomname = "lobby";
+    }
+    messageView.changeSource(roomname);
   }
-  messageView.changeSource(lobbyname);
+  activateRoom();
+  window.onhashchange = activateRoom;
   fetchMessages();
 
 });
