@@ -1,4 +1,4 @@
-var lastUpdated = new Date(0);
+var lastUpdated = new Date("March 10, 2014");
 
 $(document).ready(function() {
 
@@ -36,7 +36,10 @@ $(document).ready(function() {
     ), updateMessages);
   };
 
+  messageView.template = $('#message-template').html();
+  messageView.changeSource('lobby');
   fetchMessages();
+
 
 });
 
