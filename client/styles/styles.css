@@ -130,6 +130,42 @@ input[type = "submit"] {
   outline: none;
 }
 
+nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width:  3rem;
+  background-color: white;
+  background-image: url(http://cdn.css-tricks.com/wp-content/uploads/2012/10/threelines.png);
+  background-size: cover;
+  background-position: center center;
+}
+nav .roomlist {
+  position: absolute;
+  top: 100%;
+  width: 8rem;
+  right: 0;
+  background-color: black;
+  color: white;
+  display: none;
+  max-height: 30rem;
+  overflow: auto;
+}
+nav .roomlist a {
+  display: block;
+  padding: 0.5rem;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+}
+nav .roomlist a:hover {
+  background-color: grey;
+}
+nav:hover .roomlist {
+  display: block;
+}
+
 @media screen and (max-width: 50rem) {
   .message h3 {
     width: 20%;

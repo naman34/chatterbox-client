@@ -51,11 +51,12 @@ $(document).ready(function() {
       roomname = "lobby";
     }
     messageView.changeSource(roomname);
-  }
+  };
   activateRoom();
   window.onhashchange = activateRoom;
   fetchMessages();
 
+  $('nav').click(function(){return true;});
 });
 
 

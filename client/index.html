@@ -22,7 +22,11 @@
 
       <header>
         <h1>chatterbox</h1>
-        <nav class="roomlist"></nav>
+        <nav>
+          <div class="roomlist">
+            
+          </div>
+        </nav>
       </header>
 
       <div class="messages">
@@ -37,7 +41,7 @@
 
     </div>
     <script type="x/template" id="message-template">
-      <div class="message" id="{{objectId}}">
+      <div class="message" id="{{objectId}}" data-username="{{username}}">
         <h3 class="username">{{username}}&nbsp;</h3>
         <p class="text">{{text}}&nbsp;</p>
         <span class="timestamp">{{updatedAt}}</span>
