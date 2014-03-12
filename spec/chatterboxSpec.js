@@ -110,8 +110,7 @@ describe('chatterbox', function() {
       it('should try to send a message upon clicking submit', function(){
         sinon.spy(app, 'handleSubmit');
 
-        $('#message').text('Why so many Mel Brooks quotes?');
-
+https://api.parse.com/1/classes/chatterbox
         app.init();
 
         $('#send .submit').trigger('submit');

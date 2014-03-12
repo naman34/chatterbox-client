@@ -2,7 +2,7 @@ var lastUpdated = new Date("March 10, 2014");
 
 $(document).ready(function() {
 
-  // Receives array of messages, puts them in appropriate room, updates 'lastUpdated', and sets 'fetchMessages' to run again after delay.
+  // Receives array of messages, puts them in appropriate room, updates 'lastUpdated', and sets 'fetch' to run again after delay.
   var updateMessages = function(response) {
     //console.log(response.results);
     _.each(response.results, function(messageObj) {
@@ -20,11 +20,11 @@ $(document).ready(function() {
         //console.log("date updated to: ", lastUpdated);
       }
     });
-    setTimeout(fetchMessages, 1000);
+    setTimeout(fetch, 1000);
   };
 
   // Fetches new messages and passes them to updateMessages method.
-  var fetchMessages = function() {
+  var fetch = function() {
     var obj = {
       updatedAt: {
         "$gt": {
@@ -54,7 +54,7 @@ $(document).ready(function() {
   };
   activateRoom();
   window.onhashchange = activateRoom;
-  fetchMessages();
+  fetch();
 
   $('nav').click(function(){return true;});
 });

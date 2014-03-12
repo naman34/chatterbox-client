@@ -11,10 +11,11 @@
     <script src="bower_components/underscore/underscore.js"></script>
     <!-- your scripts -->
     <script src="scripts/config.js"></script>
-    <script src="scripts/rooms.js"></script>
+    <script src="scripts/app.js"></script>
+    <!-- <script src="scripts/rooms.js"></script>
     <script src="scripts/templates.js"></script>
     <script src="scripts/view.js"></script>
-    <script src="scripts/messageFetcher.js"></script>
+    <script src="scripts/messageFetcher.js"></script>-->
   </head>
   <body>
 
@@ -23,19 +24,18 @@
       <header>
         <h1>chatterbox</h1>
         <nav>
-          <div class="roomlist">
-            
+          <div class="roomlist" id="roomSelect">
           </div>
         </nav>
       </header>
 
-      <div class="messages">
+      <div class="messages" id="chats">
       </div>
 
       <footer>
         <form>
           <input type="text" placeholder="your chatter here…">
-          <input type="submit" value="post">
+          <input type="submit" value="post" id="submit">
         </form>
       </footer>
 
@@ -46,6 +46,13 @@
         <p class="text">{{text}}&nbsp;</p>
         <span class="timestamp">{{updatedAt}}</span>
       </div>
+    </script>
+    <script>
+//3
+      (function(){
+        app.init();
+      })();
+
     </script>
   </body>
 </html>

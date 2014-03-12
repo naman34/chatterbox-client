@@ -160,7 +160,7 @@ nav .roomlist a {
   text-decoration: none;
 }
 nav .roomlist a:hover {
-  background-color: grey;
+  background-color: gray;
 }
 nav:hover .roomlist {
   display: block;
